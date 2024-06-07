@@ -12,14 +12,14 @@ import static costant.Costanti.*;
 public class GestioneGioco {
     private static int conta=0;
     private static ArrayList<Mazzo> mazzoPescata;
-    private static ArrayList<Mazzo> mazzoScarti= new ArrayList<Mazzo>();
+    private static ArrayList<Mazzo> mazzoScarti= new ArrayList<>();
     private static Random random = new Random();
-    private static ArrayList<Giocatore> giocatori=new ArrayList<Giocatore>();
+    private static ArrayList<Giocatore> giocatori=new ArrayList<>();
     private static ArrayList<String> ruoli =LeggoXML.leggoruoli();
     private static ArrayList<Arma> armi;
     private static ArrayList<Carta> carte;
     private static ArrayList<String> nomi;
-    private static Map<String,Integer> classifica=new HashMap<String,Integer>();
+    private static Map<String,Integer> classifica=new HashMap<>();
     private static boolean ultimoRinnegato=false;
 
 
@@ -199,6 +199,7 @@ public class GestioneGioco {
             armi.add(new Arma("Winchester",5));
         }
     }
+
     private static void creoCarte(){
         carte=new ArrayList<Carta>();
         for(int i=0; i<50;i++){
