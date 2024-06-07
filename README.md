@@ -10,7 +10,6 @@
 
 ## Moduli Implementati
 
-<! - - Spuntare con una ’X ’ tra le quadre i moduli implementati -->
 
 - [X] Modulo 1: Personaggi
 - [ ] Modulo 2: Per un pugno di carte
