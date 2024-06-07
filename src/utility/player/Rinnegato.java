@@ -8,7 +8,7 @@ import static costant.Costanti.VICE;
 
 
 public class Rinnegato extends Giocatore{
-    public Rinnegato(Personaggio p) {
-        super(p.getNome(),p.getPS(), GestioneGioco.getRuoli(RINNEGATO));
+    public Rinnegato(Personaggio p,String nik) {
+        super(p.getNome(),p.getPS(), GestioneGioco.getRuoli(RINNEGATO),nik);
     }
 }
