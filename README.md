@@ -2,12 +2,12 @@
 2
 3 ## Candidato
 4
-5 | | |
-6 | -------------- | ------------------ |
-7 | Nome | ** < Nome >** |
-8 | Cognome | ** < Cognome >** |
-9 | Matricola | ** < Matricola >** |
-10 | Corso di Studi | ** < CorsoDiStudi >** |
+5 |                |                        |
+6 | -------------- | -----------------------|
+7 | Nome           | Marco                  |
+8 | Cognome        | Ghidini                |
+9 | Matricola      | 745914                 |
+10| Corso di Studi |ingegneria informatica  |
 11
 12 ## Moduli Implementati
 13
