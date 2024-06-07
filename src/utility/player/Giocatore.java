@@ -1,13 +1,11 @@
 package utility.player;
 
-import utility.Ruolo;
-
 public abstract class Giocatore {
     private String name;
     private int ps;
-    private Ruolo ruolo;
+    private String ruolo;
 
-    public Giocatore(String name, int ps, Ruolo ruolo) {
+    public Giocatore(String name, int ps, String ruolo) {
         this.name = name;
         this.ps = ps;
         this.ruolo = ruolo;
@@ -29,11 +27,11 @@ public abstract class Giocatore {
         this.ps = ps;
     }
 
-    public Ruolo getRuolo() {
+    public String getRuolo() {
         return ruolo;
     }
 
-    public void setRuolo(Ruolo ruolo) {
+    public void setRuolo(String ruolo) {
         this.ruolo = ruolo;
     }
 }

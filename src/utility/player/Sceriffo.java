@@ -1,9 +1,12 @@
 package utility.player;
-import utility.Ruolo;
-import static costant.Costanti.*;
+import logic.GestioneGioco;
+import utility.Personaggio;
+
+import static costant.Costanti.SCERIFFO;
 
 public class Sceriffo extends Giocatore{
-    public Sceriffo(String nome) {
-        super(nome,PS_SCERIFFO, Ruolo.SCERIFFO);
+
+    public Sceriffo(Personaggio p) {
+        super(p.getNome(),p.getPS()+1, GestioneGioco.getRuoli(SCERIFFO));
     }
 }

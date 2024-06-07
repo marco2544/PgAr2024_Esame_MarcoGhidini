@@ -1,11 +1,10 @@
 package utility.player;
 
-import utility.Ruolo;
-
-import static costant.Costanti.PS;
-
+import logic.GestioneGioco;
+import utility.Personaggio;
+import static costant.Costanti.*;
 public class FuoriLegge extends Giocatore{
-    public FuoriLegge(String name) {
-        super(name, PS, Ruolo.FUORILEGGE);
+    public FuoriLegge(Personaggio p) {
+        super(p.getNome(),p.getPS(), GestioneGioco.getRuoli(FUORILEGGE));
     }
 }

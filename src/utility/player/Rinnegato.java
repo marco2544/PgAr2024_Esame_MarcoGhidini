@@ -1,11 +1,14 @@
 package utility.player;
 
-import utility.Ruolo;
+import logic.GestioneGioco;
+import utility.Personaggio;
 
-import static costant.Costanti.PS;
+import static costant.Costanti.RINNEGATO;
+import static costant.Costanti.VICE;
+
 
 public class Rinnegato extends Giocatore{
-    public Rinnegato(String name) {
-        super(name, PS, Ruolo.RINNEGATO);
+    public Rinnegato(Personaggio p) {
+        super(p.getNome(),p.getPS(), GestioneGioco.getRuoli(RINNEGATO));
     }
 }

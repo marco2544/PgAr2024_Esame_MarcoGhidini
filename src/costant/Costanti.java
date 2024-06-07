@@ -2,10 +2,15 @@ package costant;
 
 public class Costanti {
     //costanti logiche
-    public final static int PS=4;
-    public final static int PS_SCERIFFO=PS+1;
+
     public final static int MIN=4;
     public final static int MAX=7;
+    public final static int N_PERSONAGGI=7;
+    public final static int SCERIFFO=0;
+    public final static int VICE=2;
+    public final static int FUORILEGGE=1;
+    public final static int RINNEGATO=3;
+
 
     //costanti di interfaccia
     public final static String PRESENTAZIONE= """
@@ -60,5 +65,6 @@ public class Costanti {
             74 “Gioca e Scarta”: 50 BANG! e 24 Mancato!.""";
     public final static String VNC="comando non valido reinseriscilo\n";
     public final static String N_GIOCATORI="in quanti giocatori siete (max "+MAX+" - min "+MIN+")\n";
+    public final static String INTRODUZIONE="I ruoli  e i personaggi sono stati estratti eccoli:";
 
 }
