@@ -39,17 +39,19 @@ public class InterfacciaUtente {
                 3) distanza altro giocatore
                 4) PF attuali
                 5) attacca
-                6) passa il turno
+                6) scarta carte
+                7) passa
                 """);
     }
 
     public static void stampoMano(Giocatore g){
+        System.out.println("carte in mano:");
         for (int i = 0; i < g.getCarteInMano().size(); i++) {
-            System.out.println("carte in mano:");
+
             System.out.println(g.getCarteInMano().get(i).getNome()+"\n");
-            System.out.println("arma equipaggiata:");
-            System.out.println(g.getArma().getNome()+"\n");
         }
+        System.out.println("arma equipaggiata:");
+        System.out.println(g.getArma().getNome()+"\n");
     }
 
     public static Giocatore sceltaGiocatori(ArrayList<Giocatore> giocatori,int i){
@@ -62,7 +64,7 @@ public class InterfacciaUtente {
                 }
             }
             s=InputData.readInteger("scegli il giocatore ");
-        } while (s>=0 && s< giocatori.size() && s!=i);
+        } while (!(s>=0 && s< giocatori.size() && s!=i));
         return giocatori.get(s);
     }
 

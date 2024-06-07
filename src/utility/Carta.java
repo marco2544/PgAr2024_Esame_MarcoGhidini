@@ -11,7 +11,4 @@ public  class Carta extends Mazzo{
         return nome;
     }
 
-    public void setNome(TipoCarta nome) {
-        this.nome = nome;
-    }
 }

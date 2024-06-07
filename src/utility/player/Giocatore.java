@@ -1,7 +1,10 @@
 package utility.player;
 
+import it.kibo.fp.lib.InputData;
+import logic.GestioneGioco;
 import utility.Arma;
 import utility.Carta;
+import utility.Mazzo;
 
 import java.util.ArrayList;
 
@@ -18,7 +21,7 @@ public abstract class Giocatore {
         this.ps = ps;
         this.ruolo = ruolo;
         this.nikname = nikname;
-        this.carteInMano=new ArrayList<Carta>();
+        this.carteInMano=preparocarte(ps);
         this.arma=new Arma("Colt 45",1);
     }
 
@@ -67,9 +70,37 @@ public abstract class Giocatore {
         return arma;
     }
 
+    public void setArma(Arma arma) {
+        this.arma = arma;
+    }
+
+    public void pesca(Mazzo carta){
+        if (carta.getClass().equals(Arma.class)){
+            if (InputData.readString("è un arma vuoi equipaggiarla? (y/n) ",false).equalsIgnoreCase("y")){
+                GestioneGioco.getMazzoScarti().add(getArma());
+                setArma((Arma) carta);
+            }
+            else {
+                GestioneGioco.getMazzoScarti().add(carta);
+            }
+        }
+        else if (carta.getClass().equals(Carta.class)){
+            getCarteInMano().add((Carta) carta);
+        }
+
+    }
     @Override
     public String toString() {
         return this.nikname +" personaggio: " +this.nomePersonaggio+"  ruolo: " +this.ruolo;
+    }
+
+    private static ArrayList<Carta> preparocarte(int ps){
+        ArrayList<Carta> carte = new ArrayList<Carta>();
+        for (int i = 0; i < ps; i++) {
+            carte.add(GestioneGioco.getCarte().getFirst());
+            GestioneGioco.getCarte().remove(carte.getLast());
+        }
+        return carte;
     }
 
 }
