@@ -12,7 +12,7 @@ import static costant.Costanti.*;
 public class GestioneGioco {
     private static int conta=0;
     private static ArrayList<Mazzo> mazzoPescata;
-    private static ArrayList<Mazzo> mazzoScarti=new ArrayList<Mazzo>();
+    private static ArrayList<Mazzo> mazzoScarti= new ArrayList<Mazzo>();
     private static Random random = new Random();
     private static ArrayList<Giocatore> giocatori=new ArrayList<Giocatore>();
     private static ArrayList<String> ruoli =LeggoXML.leggoruoli();
@@ -36,14 +36,14 @@ public class GestioneGioco {
         giocatori();
         if (scelt==2){
 
-            for (int i = 0; i < nomi.size(); i++) {
-                classifica.put(nomi.get(i), 500);
+            for (String s : nomi) {
+                classifica.put(s, 500);
             }
         }
         do {
 
-            for (int i = 0; i < nomi.size(); i++) {
-                classifica.put(nomi.get(i),classifica.get(nomi.get(i)));
+            for (String s : nomi) {
+                classifica.put(s, classifica.get(s));
             }
             ultimoRinnegato=false;
             creoArmi();
@@ -260,32 +260,38 @@ public class GestioneGioco {
 
         if (!ceSceriffo()){
             if (ceRinnegato()){
-                for (int i = 0; i <giocatori.size(); i++) {
-                    if (giocatori.get(i).getRuolo().equals(GestioneGioco.getRuoli(RINNEGATO))) {
-                        if (nomi.size()==4){
-                            classifica.put(giocatori.get(i).getNikname(),classifica.get(giocatori.get(i).getNikname())+22000);
-                        }else if (nomi.size()==5){
-                            classifica.put(giocatori.get(i).getNikname(),classifica.get(giocatori.get(i).getNikname())+24000);
-                        }else if (nomi.size()==6){
-                            classifica.put(giocatori.get(i).getNikname(),classifica.get(giocatori.get(i).getNikname())+26000);
-                        }else if (nomi.size()==7){
-                            classifica.put(giocatori.get(i).getNikname(),classifica.get(giocatori.get(i).getNikname())+28000);
+                for (Giocatore giocatore : giocatori) {
+                    if (giocatore.getRuolo().equals(GestioneGioco.getRuoli(RINNEGATO))) {
+                        if (nomi.size() == 4) {
+                            classifica.put(giocatore.getNikname(), classifica.get(giocatore.getNikname()) + 22000);
+                        }
+                        else if (nomi.size() == 5) {
+                            classifica.put(giocatore.getNikname(), classifica.get(giocatore.getNikname()) + 24000);
+                        }
+                        else if (nomi.size() == 6) {
+                            classifica.put(giocatore.getNikname(), classifica.get(giocatore.getNikname()) + 26000);
+                        }
+                        else if (nomi.size() == 7) {
+                            classifica.put(giocatore.getNikname(), classifica.get(giocatore.getNikname()) + 28000);
                         }
                     }
                 }
                 System.out.println("ha vinto il rinnegato");
             }
             else if (ceFuorilegge()){
-                for (int i = 0; i <giocatori.size(); i++) {
-                    if (giocatori.get(i).getRuolo().equals(GestioneGioco.getRuoli(FUORILEGGE))) {
-                        if (nomi.size()==4){
-                            classifica.put(giocatori.get(i).getNikname(),classifica.get(giocatori.get(i).getNikname())+1600);
-                        }else if (nomi.size()==5){
-                            classifica.put(giocatori.get(i).getNikname(),classifica.get(giocatori.get(i).getNikname())+1800);
-                        }else if (nomi.size()==6){
-                            classifica.put(giocatori.get(i).getNikname(),classifica.get(giocatori.get(i).getNikname())+1500);
-                        }else if (nomi.size()==7){
-                            classifica.put(giocatori.get(i).getNikname(),classifica.get(giocatori.get(i).getNikname())+1700);
+                for (Giocatore giocatore : giocatori) {
+                    if (giocatore.getRuolo().equals(GestioneGioco.getRuoli(FUORILEGGE))) {
+                        if (nomi.size() == 4) {
+                            classifica.put(giocatore.getNikname(), classifica.get(giocatore.getNikname()) + 1600);
+                        }
+                        else if (nomi.size() == 5) {
+                            classifica.put(giocatore.getNikname(), classifica.get(giocatore.getNikname()) + 1800);
+                        }
+                        else if (nomi.size() == 6) {
+                            classifica.put(giocatore.getNikname(), classifica.get(giocatore.getNikname()) + 1500);
+                        }
+                        else if (nomi.size() == 7) {
+                            classifica.put(giocatore.getNikname(), classifica.get(giocatore.getNikname()) + 1700);
                         }
                     }
                 }
@@ -295,28 +301,31 @@ public class GestioneGioco {
         }
         else if (!ceFuorilegge()){
             if (!ceRinnegato()){
-                for (int i = 0; i <giocatori.size(); i++) {
-                    if (giocatori.get(i).getRuolo().equals(GestioneGioco.getRuoli(SCERIFFO))||giocatori.get(i).getRuolo().equals(GestioneGioco.getRuoli(VICE))) {
-                        if (nomi.size()==4){
-                            if (ultimoRinnegato){
-                                classifica.put(giocatori.get(i).getNikname(),classifica.get(giocatori.get(i).getNikname())+250);
+                for (Giocatore giocatore : giocatori) {
+                    if (giocatore.getRuolo().equals(GestioneGioco.getRuoli(SCERIFFO)) || giocatore.getRuolo().equals(GestioneGioco.getRuoli(VICE))) {
+                        if (nomi.size() == 4) {
+                            if (ultimoRinnegato) {
+                                classifica.put(giocatore.getNikname(), classifica.get(giocatore.getNikname()) + 250);
                             }
-                            classifica.put(giocatori.get(i).getNikname(),classifica.get(giocatori.get(i).getNikname())+1400);
-                        }else if (nomi.size()==5){
-                            if (ultimoRinnegato){
-                                classifica.put(giocatori.get(i).getNikname(),classifica.get(giocatori.get(i).getNikname())+300);
+                            classifica.put(giocatore.getNikname(), classifica.get(giocatore.getNikname()) + 1400);
+                        }
+                        else if (nomi.size() == 5) {
+                            if (ultimoRinnegato) {
+                                classifica.put(giocatore.getNikname(), classifica.get(giocatore.getNikname()) + 300);
                             }
-                            classifica.put(giocatori.get(i).getNikname(),classifica.get(giocatori.get(i).getNikname())+1200);
-                        }else if (nomi.size()==6){
-                            if (ultimoRinnegato){
-                                classifica.put(giocatori.get(i).getNikname(),classifica.get(giocatori.get(i).getNikname())+350);
+                            classifica.put(giocatore.getNikname(), classifica.get(giocatore.getNikname()) + 1200);
+                        }
+                        else if (nomi.size() == 6) {
+                            if (ultimoRinnegato) {
+                                classifica.put(giocatore.getNikname(), classifica.get(giocatore.getNikname()) + 350);
                             }
-                            classifica.put(giocatori.get(i).getNikname(),classifica.get(giocatori.get(i).getNikname())+1600);
-                        }else if (nomi.size()==7){
-                            if (ultimoRinnegato){
-                                classifica.put(giocatori.get(i).getNikname(),classifica.get(giocatori.get(i).getNikname())+450);
+                            classifica.put(giocatore.getNikname(), classifica.get(giocatore.getNikname()) + 1600);
+                        }
+                        else if (nomi.size() == 7) {
+                            if (ultimoRinnegato) {
+                                classifica.put(giocatore.getNikname(), classifica.get(giocatore.getNikname()) + 450);
                             }
-                            classifica.put(giocatori.get(i).getNikname(),classifica.get(giocatori.get(i).getNikname())+1200);
+                            classifica.put(giocatore.getNikname(), classifica.get(giocatore.getNikname()) + 1200);
                         }
                     }
                 }
@@ -330,16 +339,16 @@ public class GestioneGioco {
         return false;
     }
     private static boolean ceSceriffo(){
-        for (int i = 0; i <giocatori.size(); i++) {
-            if (giocatori.get(i).getRuolo().equals(GestioneGioco.getRuoli(SCERIFFO))){
+        for (Giocatore giocatore : giocatori) {
+            if (giocatore.getRuolo().equals(GestioneGioco.getRuoli(SCERIFFO))) {
                 return true;
             }
         }
         return false;
     }
     private static boolean ceRinnegato(){
-        for (int i = 0; i <giocatori.size(); i++) {
-            if (giocatori.get(i).getRuolo().equals(GestioneGioco.getRuoli(RINNEGATO))){
+        for (Giocatore giocatore : giocatori) {
+            if (giocatore.getRuolo().equals(GestioneGioco.getRuoli(RINNEGATO))) {
                 return true;
             }
         }
@@ -347,8 +356,8 @@ public class GestioneGioco {
     }
 
     private static boolean ceFuorilegge(){
-        for (int i = 0; i <giocatori.size(); i++) {
-            if (giocatori.get(i).getRuolo().equals(GestioneGioco.getRuoli(FUORILEGGE))){
+        for (Giocatore giocatore : giocatori) {
+            if (giocatore.getRuolo().equals(GestioneGioco.getRuoli(FUORILEGGE))) {
                 return true;
             }
         }

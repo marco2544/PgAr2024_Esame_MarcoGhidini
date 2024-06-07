@@ -1,7 +1,5 @@
 package logic;
 
-import utility.Mazzo;
-
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
@@ -22,7 +20,7 @@ public class Scrivoxml {
                 xmlw.writeCharacters("\n");
                 xmlw.writeStartElement("giocatori");
                 for (int i = 0; i < GestioneGioco.getNomi().size(); i++) {
-                    xmlw.writeStartElement("giocatori");
+                    xmlw.writeStartElement("giocatore");
                     xmlw.writeStartElement("nome");
                     xmlw.writeCharacters(GestioneGioco.getNomi().get(i));
                     xmlw.writeEndElement();
@@ -34,6 +32,7 @@ public class Scrivoxml {
                     xmlw.writeEndElement();
                     xmlw.writeStartElement("punteggio");
                     xmlw.writeCharacters(String.valueOf(classifica.get(GestioneGioco.getNomi().get(i))/conta));
+                    xmlw.writeEndElement();
                     xmlw.writeEndElement();
                 }
                 xmlw.writeEndElement();//</routes>

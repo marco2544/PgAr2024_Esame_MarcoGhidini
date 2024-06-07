@@ -1,10 +1,7 @@
 package logic;
 
 import org.w3c.dom.*;
-import utility.Arma;
-import utility.Carta;
 import utility.Personaggio;
-import utility.player.Giocatore;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -15,7 +12,7 @@ import static costant.Costanti.N_PERSONAGGI;
 
 public class LeggoXML {
     public static ArrayList<Personaggio> leggoPersonaggi(){
-        ArrayList<Personaggio> p=new ArrayList<Personaggio>();
+        ArrayList<Personaggio> p= new ArrayList<>();
         try {
             File inputFile = new File("src/surceFile/listaCarte.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -41,7 +38,7 @@ public class LeggoXML {
         return p;
     }
     public static ArrayList<String> leggoruoli(){
-        ArrayList<String> r=new ArrayList<String>();
+        ArrayList<String> r= new ArrayList<>();
         try {
             File inputFile = new File("src/surceFile/listaCarte.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();

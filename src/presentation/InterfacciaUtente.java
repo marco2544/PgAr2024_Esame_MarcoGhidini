@@ -25,7 +25,7 @@ public class InterfacciaUtente {
     }
 
     public static ArrayList<String> chiedoNomi(int n){
-        ArrayList<String> nomi=new ArrayList<String>();
+        ArrayList<String> nomi= new ArrayList<>();
         for (int i = 0; i < n; i++) {
             nomi.add(InputData.readString("inserisci il tuo nome \n",true));
         }
@@ -55,7 +55,7 @@ public class InterfacciaUtente {
     }
 
     public static Giocatore sceltaGiocatori(ArrayList<Giocatore> giocatori,int i){
-        int s=0;
+        int s;
         do {
             for (int j = 0; j < giocatori.size(); j++) {
                 if (j != i) {

@@ -38,9 +38,6 @@ public abstract class Giocatore {
         return nomePersonaggio;
     }
 
-    public void setNomePersonaggio(String nomePersonaggio) {
-        this.nomePersonaggio = nomePersonaggio;
-    }
 
     public int getPs() {
         return ps;
@@ -52,18 +49,6 @@ public abstract class Giocatore {
 
     public String getRuolo() {
         return ruolo;
-    }
-
-    public void setRuolo(String ruolo) {
-        this.ruolo = ruolo;
-    }
-
-    public void setCarteInMano(ArrayList<Carta> carteInMano) {
-        this.carteInMano = carteInMano;
-    }
-
-    public void setNikname(String nikname) {
-        this.nikname = nikname;
     }
 
     public Arma getArma() {
