@@ -63,7 +63,7 @@ public class LeggoXML {
         return r;
     }
 
-    public static ArrayList<Arma> leggoArmi(){
+    /*public static ArrayList<Arma> leggoArmi(){
         ArrayList<Arma> a=new ArrayList<Arma>();
         try {
             File inputFile = new File("src/surceFile/listaCarte.xml");
@@ -132,5 +132,5 @@ public class LeggoXML {
             e.printStackTrace();
         }
         return c;
-    }
+    }*/
 }

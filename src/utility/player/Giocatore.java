@@ -19,7 +19,7 @@ public abstract class Giocatore {
         this.ruolo = ruolo;
         this.nikname = nikname;
         this.carteInMano=new ArrayList<Carta>();
-        this.arma=new Arma("Colt 45",1,null,null);
+        this.arma=new Arma("Colt 45",1);
     }
 
 
@@ -63,8 +63,13 @@ public abstract class Giocatore {
         this.nikname = nikname;
     }
 
+    public Arma getArma() {
+        return arma;
+    }
+
     @Override
     public String toString() {
         return this.nikname +" personaggio: " +this.nomePersonaggio+"  ruolo: " +this.ruolo;
     }
+
 }

@@ -31,4 +31,42 @@ public class InterfacciaUtente {
         }
         return nomi;
     }
+
+    public static void menu(){
+        System.out.println(""" 
+                1)vedere chi è lo Sceriffo
+                2) conoscere le proprie carte, sia in mano che equipaggiate
+                3) distanza altro giocatore
+                4) PF attuali
+                5) attacca
+                6) passa il turno
+                """);
+    }
+
+    public static void stampoMano(Giocatore g){
+        for (int i = 0; i < g.getCarteInMano().size(); i++) {
+            System.out.println("carte in mano:");
+            System.out.println(g.getCarteInMano().get(i).getNome()+"\n");
+            System.out.println("arma equipaggiata:");
+            System.out.println(g.getArma().getNome()+"\n");
+        }
+    }
+
+    public static Giocatore sceltaGiocatori(ArrayList<Giocatore> giocatori,int i){
+        int s=0;
+        do {
+            for (int j = 0; j < giocatori.size(); j++) {
+                if (j != i) {
+                    System.out.println(j + "  " + giocatori.get(j).getNikname() + "   :" + giocatori.get(j).getNomePersonaggio());
+
+                }
+            }
+            s=InputData.readInteger("scegli il giocatore ");
+        } while (s>=0 && s< giocatori.size() && s!=i);
+        return giocatori.get(s);
+    }
+
+    public static void stampoSalute(Giocatore g){
+        System.out.println(" la tua via \212 di "+g.getPs());
+    }
 }

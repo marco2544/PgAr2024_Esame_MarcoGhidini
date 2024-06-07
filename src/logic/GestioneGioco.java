@@ -2,10 +2,7 @@ package logic;
 
 import it.kibo.fp.lib.InputData;
 import presentation.InterfacciaUtente;
-import utility.Arma;
-import utility.Carta;
-import utility.Mazzo;
-import utility.Personaggio;
+import utility.*;
 import utility.player.*;
 
 import java.util.ArrayList;
@@ -20,6 +17,8 @@ public class GestioneGioco {
     private static Random random = new Random();
     private static ArrayList<Giocatore> giocatori=new ArrayList<Giocatore>();
     private static ArrayList<String> ruoli =LeggoXML.leggoruoli();
+    private static ArrayList<Arma> armi;
+    private static ArrayList<Carta> carte;
 
 
     public static void start()  {
@@ -27,7 +26,43 @@ public class GestioneGioco {
         regole();
         giocatori();
         creomazzo();
-        System.out.println(mazzoPescata.get(10));
+        System.out.println(mazzoPescata.size());
+        int i = 0;
+        do {
+            InterfacciaUtente.menu();
+            switch (InputData.readInteger("")){
+                case 1:
+                    InterfacciaUtente.infoGiocatori(giocatori,0);
+                    break;
+                case 2:
+                    InterfacciaUtente.stampoMano(giocatori.get(i));
+                    break;
+                case 3:
+                    Giocatore g=InterfacciaUtente.sceltaGiocatori(giocatori,i);
+                    int dist=0;
+                    for (int j = i; j <giocatori.size(); j++) {
+                        dist++;
+                        if (giocatori.get(j).equals(g)){
+                            j=giocatori.size()*10;
+                        }
+                        if (j==giocatori.size()-1){
+                            j=0;
+                        }
+                    }
+                    System.out.println("distanza= "+dist);
+                    break;
+                case 4:
+                    InterfacciaUtente.stampoSalute(giocatori.get(i));
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    i++;
+                    break;
+                default:
+                    System.out.println(VNC);
+            }
+        }while (!ControlloVincite());
     }
 
     private static void regole()    {
@@ -67,11 +102,39 @@ public class GestioneGioco {
     }
 
     private static void creomazzo(){
-        ArrayList<Arma> armi=LeggoXML.leggoArmi();
-        ArrayList<Carta> carte=LeggoXML.leggoCarte();
+        creoArmi();
+        creoCarte();
         mazzoPescata=new ArrayList<Mazzo>();
         mazzoPescata.addAll(armi);
         mazzoPescata.addAll(carte);
         Collections.shuffle(mazzoPescata);
+    }
+
+    private static void creoArmi(){
+        for (int i=0; i<3;i++){
+            armi.add(new Arma("Schofield",2));
+        }
+        for (int i=0; i<1;i++){
+            armi.add(new Arma("Remington",3));
+        }
+        for (int i=0; i<1;i++){
+            armi.add(new Arma("Rev. Carabine",4));
+        }
+        for (int i=0; i<1;i++){
+            armi.add(new Arma("Winchester",5));
+        }
+    }
+    private static void creoCarte(){
+        carte=new ArrayList<Carta>();
+        for(int i=0; i<50;i++){
+            carte.add(new Carta(TipoCarta.BANG));
+        }
+        for (int i=0; i<24;i++){
+            carte.add(new Carta(TipoCarta.MANCATO));
+        }
+    }
+
+    private static boolean ControlloVincite(){
+        return false;
     }
 }
